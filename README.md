@@ -19,7 +19,7 @@ Laravel tabanlı toplu SMS gönderim uygulaması. Queue/Job yapısı, Repository
 
 ### 1. Projeyi Klonlayın
 ```bash
-git clone https://github.com/yourusername/sms-sender.git
+git clone https://github.com/mrtozl000/sms-sender.git
 cd $PATH/sms-sender
 ```
 ----
