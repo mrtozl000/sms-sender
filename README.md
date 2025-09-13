@@ -57,7 +57,8 @@ docker-compose exec app php artisan redis:ping
     "laravel/framework": "^10.0",
     "predis/predis": "^2.0",
     "darkaonline/l5-swagger": "^8.5",
-    "guzzlehttp/guzzle": "^7.2"
+    "guzzlehttp/guzzle": "^7.2", 
+    "giggsey/libphonenumber-for-php": "^9.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^12.3",

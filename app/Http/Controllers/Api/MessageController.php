@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\PhoneValidator;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ListMessagesRequest;
+use App\Rules\PhoneNumber;
 use App\Services\MessageService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -164,9 +166,14 @@ class MessageController extends Controller
     public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
-            'phone_number' => 'required|string|max:20',
+            'phone_number' => ['required', 'string', 'max:20', new PhoneNumber('TR')],
             'content' => 'required|string|max:' . config('sms.max_length'),
         ]);
+
+        $phoneResult = PhoneValidator::validate($validated['phone_number']);
+        if ($phoneResult['valid']) {
+            $validated['phone_number'] = $phoneResult['formatted'];
+        }
 
         try {
             $message = $this->messageService->createMessage($validated);
