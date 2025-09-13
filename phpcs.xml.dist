@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="Laravel Project Rules">
+    <description>PSR-12 + DocBlock Rules</description>
+    <config name="php_version" value="80290"/>
+
+    <file>app</file>
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>storage/*</exclude-pattern>
+    <exclude-pattern>bootstrap/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+
+
+    <rule ref="PSR12" />
+
+    <!-- DocBlock Control -->
+    <rule ref="Squiz.Commenting.FunctionComment" />
+    <rule ref="Squiz.Commenting.ClassComment" />
+
+    <rule ref="Squiz.Commenting.EmptyCatchComment" />
+
+    <!-- Her public function docblock must -->
+    <rule ref="Squiz.Commenting.FunctionComment.Missing"/>
+</ruleset>

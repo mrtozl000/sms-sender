@@ -1,0 +1,105 @@
+use Illuminate\Support\Facades\Redis;
+Redis::ping();
+Cache::put('test', 'working', 60);
+Cache::get('test');clear
+App\Models\Message::create([
+    'phone_number' => '+905551234567',
+    'content' => 'Merhaba, bu ilk test mesajı!'
+]);
+App\Models\Message::create([
+    'phone_number' => '+905559876543',
+    'content' => 'İkinci test mesajı'
+]);
+App\Models\Message::create([
+    'phone_number' => '+905555555555',
+    'content' => 'Üçüncü test mesajı'
+]);
+App\Models\Message::count();
+php artisan messages:process --help
+php artisan tinker
+for($i = 1; $i <= 10; $i++) {
+    App\Models\Message::create([
+        'phone_number' => '+90555123456' . $i,
+        'content' => 'Test mesajı ' . $i
+    ]);
+}
+exit
+// Tek bir mesajı manuel gönder
+$message = App\Models\Message::where('is_sent', false)->first();
+service = app(\App\Services\MessageService::class);
+$result = $service->sendMessage($message);
+print_r($result);
+xit
+xit
+// Tek bir mesajı manuel gönder
+$message = App\Models\Message::where('is_sent', false)->first();
+service = app(\App\Services\MessageService::class);
+$result = $service->sendMessage($message);
+print_r($result);
+xit$webhook = app(\App\Services\WebhookService::class);
+$result = $webhook->sendMessage('+905551234567', 'Direkt test mesajı');
+print_r($result);
+// Webhook'u direkt test et
+$webhook = app(\App\Services\WebhookService::class);
+result = $webhook->sendMessage('+905551234567', 'Direkt test mesajı');
+print_r($result);
+exit
+// $ işaretini unutmayın!
+$message = App\Models\Message::where('is_sent', false)->first();
+service = app(\App\Services\MessageService::class);
+$result = $service->sendMessage($message);
+print_r($result);
+docker-compose exec app php artisan tinker --execute="
+\$message = App\Models\Message::where('is_sent', false)->first();
+if(\$message) {
+} else {
+// $ işaretini unutmayın!
+$message = App\Models\Message::where('is_sent', false)->first();
+service = app(\App\Services\MessageService::class);
+$result = $service->sendMessage($message);
+print_r($result);
+$message = App\Models\Message::where('is_sent', false)->first();
+service = app(\App\Services\MessageService::class);
+$result = $service->sendMessage($message);
+print_r($result);
+$message = App\Models\Message::where('is_sent', false)->first();
+service = app(\App\Services\MessageService::class);
+$result = $service->sendMessage($message);
+print_r($result);
+xitclear
+exit
+php artisan messages:process --limit=1
+exit
+$redis = Redis::connection();
+$redis = Redis::connection();
+>>> use Illuminate\Support\Facades\Redis;
+// Bir değer yaz
+>>> Redis::set('foo', 'bar');
+// Geri oku
+>>> Redis::get('foo');
+>>> use Illuminate\Support\Facades\Cache;
+// Yaz
+>>> $key = "message:123";
+>>> $data = ['external_id' => 'abc-999', 'sent_at' => now()->toIso8601String()];
+>>> Cache::put($key, $data, now()->addMinutes(5));
+// Var mı?
+>>> Cache::has($key);
+=> true
+// Oku
+>>> Cache::get($key);
+=> [
+// Sil
+>>> Cache::forget($key);
+>>> Cache::has($key);
+php artisan tinker
+config('cache.default');
+config('cache.stores.redis.connection');
+config('database.redis.cache.database');
+config('cache.prefix');
+config('database.redis.cache');
+\App\Models\Message::factory()->count(100)->create();
+\App\Models\Message::factory()->count(100)->create();
+\App\Models\Message::factory()->count(100)->create();
+\App\Models\Message::factory()->count(100)->create();
+config('queue.default');
+App\Models\Message::where('is_sent', false)->count();
